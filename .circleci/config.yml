@@ -50,6 +50,11 @@ jobs:
             git config --global user.name "Deployer"
             rm -rf _posts/python/html
             git clone -b built git@github.com:plotly/plotly.py-docs _posts/python/html
+            sudo apt-get update
+            sudo apt install python-pip
+            sudo pip install python-frontmatter
+            sudo pip install pathlib
+            python front-matter-ci.py
             bundle exec jekyll build
             mkdir snapshots
             cd _site
